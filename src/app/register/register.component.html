@@ -1,0 +1,71 @@
+<div class="container-two">
+
+   <mat-card class="example-card">
+
+      <div class="container">
+
+         <h1 id="heading">Sign Up</h1>
+
+         <form class="form"  (ngSubmit)="onSubmit()"  [formGroup]="profileForm" >
+
+            <mat-form-field appearance="outline">
+               <mat-label>Full Name</mat-label> 
+               <input matInput type="text" placeholder="Full Name" formControlName="userName">
+               <mat-error *ngIf="userName?.errors?.['required']">
+                     Name is required
+               </mat-error>
+               <mat-error *ngIf="userName?.errors?.['pattern']">
+                     Name cannot be a number
+               </mat-error>
+            </mat-form-field>
+            
+      
+            <mat-form-field appearance="outline">
+               <mat-label>Email </mat-label>
+               <input matInput type="email" placeholder="Email" formControlName="userEmail">
+               <mat-error *ngIf="userEmail?.errors?.['required']">
+                  Email is required
+               </mat-error>
+               <mat-error *ngIf="userEmail?.errors?.['pattern']">
+                  Enter a valid emailId
+               </mat-error>
+            </mat-form-field>
+      
+            <mat-form-field appearance="outline">
+               <mat-label>Password </mat-label>
+               <input matInput type="password" placeholder="Password" formControlName="userPassword">
+               <mat-error *ngIf="userPassword?.errors?.['required']">
+                  Password is required
+               </mat-error>
+               <mat-error *ngIf="userPassword?.errors?.['pattern']">
+                  Enter a valid Password
+               </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+               <mat-label>Phone No </mat-label>
+               <input matInput type="text" placeholder="Phone No" formControlName="userPhoneNo">
+               <mat-error *ngIf="userPhoneNo?.errors?.['required']">
+                  Phone No is required
+               </mat-error>
+               <mat-error *ngIf="userPhoneNo?.errors?.['pattern']">
+                  Enter a valid Phone No
+               </mat-error>
+            </mat-form-field>
+      
+            <div class="example-button-row">
+               <button mat-raised-button>Submit</button>
+             </div> 
+
+             <p> If you area lready a user, Please <a routerLink="/login">Login</a></p>
+      
+          </form>
+      </div>
+
+    
+
+   </mat-card>
+    
+
+</div>
+      

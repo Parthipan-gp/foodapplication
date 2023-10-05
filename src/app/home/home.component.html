@@ -1,0 +1,12 @@
+<app-search (searchEvent)="searchRestaurant($event)" ></app-search>
+
+<div id="restaurant">
+    <mat-card id="card" *ngFor="let restaurant of restaurant"  routerLink="restaurant/{{restaurant.restaurantId}}">
+        <img id="img" mat-card-image src="../../assets/{{restaurant.image}}.jpg">
+        <mat-card-title>{{restaurant.restaurantName}}</mat-card-title>
+        <mat-card-content>
+            <p>{{restaurant.cuisine}}</p>
+            <p>{{restaurant.rating}}</p>
+        </mat-card-content>
+    </mat-card>
+</div>

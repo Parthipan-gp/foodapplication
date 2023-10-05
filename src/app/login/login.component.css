@@ -1,0 +1,15 @@
+.login {
+    margin: 5%;
+    padding-top: 10%;
+    padding-left: 30%;
+    align-items: center;
+}
+
+.example-card {
+    max-width: 400px;
+    height: 300px;
+    text-align: center;
+}
+.sub{
+    margin-top: 40px;
+}

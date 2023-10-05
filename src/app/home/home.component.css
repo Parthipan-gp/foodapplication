@@ -1,0 +1,18 @@
+#restaurant{
+    display: inline-flex;
+    padding: 60px;
+    height:40%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+#card{
+    width:300px; 
+    box-shadow: 2px 2px 20px rgb(195, 195, 195);
+}
+
+#img{
+    width: 100px;
+    display: inline-flex;
+}
