@@ -23,7 +23,7 @@ export class LoginComponent {
 
         next:data=>{
           console.log(data)
-//           console.log(data.message)
+          console.log(data.message)
           if(data.message==1){   // checking wheather the returned response object contains token
             this.mb.open('Login', 'successful', {duration: 2000,panelClass: ['mat-toolbar', 'mat-primary']});
             localStorage.setItem("token",data.token)    //saving the token in the form of key value pair in the local storage of the web browser
