@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RestaurantData } from '../model/restaurant-description';
 import { RestaurantService } from '../services/restaurant.service';
+import { AuthService } from '../services/auth.service';
+import { FavoriteService } from '../services/favorite.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-restaurant',
@@ -12,7 +15,7 @@ export class RestaurantComponent {
 
   restaurant:RestaurantData={}
 
-  constructor(private ar :ActivatedRoute,private restaurantService:RestaurantService){}
+  constructor(private ar :ActivatedRoute,private restaurantService:RestaurantService, public authService:AuthService,private favoriteService:FavoriteService,private mb:MatSnackBar){}
 
   ngOnInit(){
     this.ar.paramMap.subscribe((data)=>{
@@ -23,6 +26,20 @@ export class RestaurantComponent {
         this.restaurant=data
         console.log(this.restaurant)
       })
+    })
+  }
+
+  token:any=localStorage.getItem('token')  // reteiving the token from the web browser, to pass it as a parameter , since here we are  accessing a protected method in backend
+
+  addToFavorites(restaurant:RestaurantData,token:any){        //passing the restaurant object and token as parameter
+      console.log(token)
+    this.favoriteService.saveRestaurantToUser(restaurant,token).subscribe({  // calling the method inside fav service
+      next:data=>{
+        this.mb.open('Restaurants successfully added!!', 'success', {
+          duration: 5000,
+          panelClass: ['mat-toolbar', 'mat-primary']
+        });
+      }
     })
   }
 

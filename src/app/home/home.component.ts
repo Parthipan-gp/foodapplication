@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RestaurantData } from '../model/restaurant-description';
 import { RestaurantService } from '../services/restaurant.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { RestaurantService } from '../services/restaurant.service';
 })
 export class HomeComponent {
 
-  constructor(private restaurantService:RestaurantService){}
+  constructor(private restaurantService:RestaurantService,public authService:AuthService){}
 
   restaurant:RestaurantData[]=[]
 

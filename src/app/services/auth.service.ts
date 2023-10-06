@@ -10,16 +10,15 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
 
-  url:string="";
+  url:string="http://localhost:9000/api/v1/login ";
 
-  logIn(user:User):Observable<User>{
-   return this.http.post<User>(this.url,user)
+  logIn(user:User):Observable<any>{
+   return this.http.post<User>(this.url,user) // data we post is of user type the reponse coming from the backend is token so the return type should be any
   }
 
 
   isLoggedStatus=false;
 
-  
 
   islogin(){
     return this.isLoggedStatus=true;

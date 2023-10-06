@@ -23,6 +23,8 @@ import { RestaurantService } from './services/restaurant.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { FavoriteService } from './services/favorite.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
     
   ],
-  providers: [ RestaurantService],
+  providers: [ RestaurantService,FavoriteService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
