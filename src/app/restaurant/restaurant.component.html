@@ -16,7 +16,7 @@
 
         <div *ngIf="authService.isLoggedStatus==true">                        //if true , enable user to a the list of restaurant to his account
             <mat-card-actions  >
-                <button mat-button color="disabled"  (click)="addToFavorites(restaurant,token)" > add to favorite</button>
+                <button mat-button color="disabled"  (click)="addToFavorites()" > add to favorite</button>
             </mat-card-actions>
         </div>
       

@@ -4,6 +4,7 @@ import { UserFavorite } from '../model/userfavorite';
 import { FavoriteService } from '../services/favorite.service';
 import { FormBuilder,FormGroup,FormControl,Form, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class RegisterComponent {
 
    //to post user details
-  constructor(private fb:FormBuilder,private favoriteService:FavoriteService,private mb:MatSnackBar) {}
+  constructor(private fb:FormBuilder,private favoriteService:FavoriteService,private mb:MatSnackBar,private router:Router) {}
 
   profileForm=this.fb.group({
     userName:['',[Validators.required,Validators.pattern("^[a-zA-Z \-\']+")]],
@@ -43,6 +44,8 @@ export class RegisterComponent {
       duration: 5000,
       panelClass: ['mat-toolbar', 'mat-primary']
     });
+    this.router.navigate([""])
+    
   }
 
 }

@@ -35,7 +35,7 @@ export class HomeComponent {
     else{
       this.restaurantService.getData().subscribe((filteredRestaurant)=>{
         this.restaurant=filteredRestaurant.filter(restaurant=>{
-          restaurant.location?.toLowerCase().startsWith(searchText.toLowerCase())
+          restaurant.restaurantName?.toLowerCase().startsWith(searchText.toLowerCase())
         })
       })
     }

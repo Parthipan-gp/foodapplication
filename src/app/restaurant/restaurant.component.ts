@@ -29,11 +29,11 @@ export class RestaurantComponent {
     })
   }
 
-  token:any=localStorage.getItem('token')  // reteiving the token from the web browser, to pass it as a parameter , since here we are  accessing a protected method in backend
+  // token:any=localStorage.getItem('token')  // reteiving the token from the web browser, to pass it as a parameter , since here we are  accessing a protected method in backend
 
-  addToFavorites(restaurant:RestaurantData,token:any){        //passing the restaurant object and token as parameter
-      console.log(token)
-    this.favoriteService.saveRestaurantToUser(restaurant,token).subscribe({  // calling the method inside fav service
+  addToFavorites(){        //passing the restaurant object and token as parameter
+      
+    this.favoriteService.saveRestaurantToUser(this.restaurant).subscribe({  // calling the method inside fav service
       next:data=>{
         this.mb.open('Restaurants successfully added!!', 'success', {
           duration: 5000,

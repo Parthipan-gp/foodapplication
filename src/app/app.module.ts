@@ -18,14 +18,18 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
-import {  HttpClientModule } from '@angular/common/http';
+import {  HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RestaurantService } from './services/restaurant.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FavoriteService } from './services/favorite.service';
 import { AuthService } from './services/auth.service';
-
+import { UserInterceptor } from './user.interceptor';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog'
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,11 +57,18 @@ import { AuthService } from './services/auth.service';
     MatInputModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatSelectModule,
+    MatDialogModule,
+    
+   
 
     
   ],
-  providers: [ RestaurantService,FavoriteService,AuthService],
-  bootstrap: [AppComponent]
+  providers: [{provide:HTTP_INTERCEPTORS,useClass: UserInterceptor,multi:true}, 
+    RestaurantService,FavoriteService,AuthService],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

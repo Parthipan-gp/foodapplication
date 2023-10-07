@@ -22,8 +22,8 @@ export class FavoriteService {
 
   urlPost:string="http://localhost:9000/api/v2/user/save"
 
-  saveRestaurantToUser(restaurant:RestaurantData,token:any):Observable<any>{
-    return this.http.post<User>(this.urlPost,restaurant,token)
+  saveRestaurantToUser(restaurant:RestaurantData):Observable<any>{      // onSubmit Of Restaurant component, observable should be of   any type because it returns token
+    return this.http.post<User>(this.urlPost,restaurant)
   }
 
   urlGet:string="http://localhost:9000/api/v2/user/get"
