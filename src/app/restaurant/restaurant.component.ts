@@ -29,9 +29,9 @@ export class RestaurantComponent {
     })
   }
 
-  // token:any=localStorage.getItem('token')  // reteiving the token from the web browser, to pass it as a parameter , since here we are  accessing a protected method in backend
+  
 
-  addToFavorites(){        //passing the restaurant object and token as parameter
+  addToFavorites(){        
       
     this.favoriteService.saveRestaurantToUser(this.restaurant).subscribe({  // calling the method inside fav service
       next:data=>{
