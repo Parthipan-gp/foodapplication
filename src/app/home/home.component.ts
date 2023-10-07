@@ -29,20 +29,27 @@ export class HomeComponent {
 
   searchRestaurant(searchText:string){
 
+    console.log("captured")
     if(searchText==""){
       this.restaurant=this.restaurant
     }
     else{
       this.restaurantService.getData().subscribe((filteredRestaurant)=>{
-        this.restaurant=filteredRestaurant.filter(restaurant=>{
+        this.restaurant=filteredRestaurant.filter(restaurant=>
           restaurant.restaurantName?.toLowerCase().startsWith(searchText.toLowerCase())
-        })
+        )
       })
+
+      console.log(this.restaurant)
     }
 
   }
 
-  
+  searchInput:string=""
+
+  onfilter(){
+
+  }
 
 
 }

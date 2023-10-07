@@ -14,6 +14,7 @@ export class SearchComponent {
   searchEvent=new EventEmitter<string>
 
   search(){
+    console.log("emitted")
     this.searchEvent.emit(this.searchText)
   }
   

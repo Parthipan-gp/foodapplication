@@ -29,7 +29,8 @@ import { UserInterceptor } from './user.interceptor';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
-import { MatDialog } from '@angular/material/dialog'
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,8 +62,8 @@ import { MatDialog } from '@angular/material/dialog'
     MatSidenavModule,
     MatSelectModule,
     MatDialogModule,
-    
-   
+    MatButtonToggleModule,
+    MatMenuModule
 
     
   ],

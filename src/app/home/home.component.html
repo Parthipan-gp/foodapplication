@@ -1,4 +1,25 @@
-<app-search (searchEvent)="searchRestaurant($event)" ></app-search>
+
+<div id=" filter">
+
+    <button mat-raised-button [matMenuTriggerFor]="location"> Location </button>  
+
+    <mat-button-toggle-group id="category" color="accent" name="favoriteColor"  [(ngModel)]="searchInput" >
+
+        <mat-menu #location="matMenu">
+            <mat-button-toggle value="chennai"  (click)="onfilter()" >Chennai</mat-button-toggle>
+            <mat-button-toggle value="mumbai"   (click)="onfilter()" >Mumbai</mat-button-toggle>
+            <mat-button-toggle value="hydrabad" (click)="onfilter()" >Hydrabad</mat-button-toggle>
+            <mat-button-toggle value="hydrabad" (click)="onfilter()" >Kerala </mat-button-toggle>
+            <mat-button-toggle value="hydrabad" (click)="onfilter()" >Brownies</mat-button-toggle>
+        </mat-menu>
+
+       </mat-button-toggle-group>   
+     
+       <app-search (searchEvent)="searchRestaurant($event)" ></app-search>
+   
+
+ </div>
+
 
 <div id="restaurant">
     <mat-card id="card" *ngFor="let restaurant of restaurant"  routerLink="restaurant/{{restaurant.restaurantId}}">
@@ -9,7 +30,9 @@
             <p>{{restaurant.rating}}</p>
         </mat-card-content>
     </mat-card>
-
+    
     <p>{{authService.isLoggedStatus}} </p>
 
 </div>
+
+
