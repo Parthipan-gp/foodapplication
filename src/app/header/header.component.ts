@@ -3,6 +3,8 @@ import { AuthService } from '../services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
+import { UserFavorite } from '../model/userfavorite';
+import { FavoriteService } from '../services/favorite.service';
 
 
 @Component({
@@ -12,7 +14,9 @@ import { RegisterComponent } from '../register/register.component';
 })
 export class HeaderComponent {
 
-  constructor(public authService:AuthService,private matDialog:MatDialog){}
+  user:UserFavorite={}
+
+  constructor(public authService:AuthService,private matDialog:MatDialog, private favoriteService:FavoriteService){}
 
   openlogin(){
     this.matDialog.open(LoginComponent,{
@@ -24,6 +28,19 @@ export class HeaderComponent {
     this.matDialog.open(RegisterComponent,{
       width:'450px'
     })
+  }
+
+  ngOnInit(){
+    this.favoriteService.getUserByUserId().subscribe({
+      next:data=>{
+        this.user=data
+      },
+    })
+  }
+
+
+  logout(){
+    this.authService.islogout();
   }
 
 }

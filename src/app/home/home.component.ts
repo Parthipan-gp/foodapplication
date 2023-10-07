@@ -48,8 +48,10 @@ export class HomeComponent {
   searchInput:string=""
 
   onfilter(){
-
+    this.restaurantService.getData().subscribe((filterRestaurant=>{
+      this.restaurant=filterRestaurant.filter(restaurant=>
+        restaurant.location?.startsWith(this.searchInput)
+        )
+    }))
   }
-
-
 }

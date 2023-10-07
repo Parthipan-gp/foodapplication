@@ -32,4 +32,11 @@ export class FavoriteService {
     return this.http.get<RestaurantData[]>(this.urlGet)
   }
 
+
+  urlGetUser:string="http://localhost:9000/api/v2/user/getUser"     // ngOnInIt of HeaderComponent
+
+  getUserByUserId():Observable<UserFavorite>{
+   return this.http.get<UserFavorite>(this.urlGetUser)
+  }
+
 }

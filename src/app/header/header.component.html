@@ -5,10 +5,25 @@
    
 
     <div id="button">
-        <button mat-button  (click)="openlogin()"     *ngIf="!authService.isLoggedStatus" >Login</button>
+        <button mat-button  (click)="openlogin()"     *ngIf="!authService.isLoggedStatus" >Log In</button>
         <button mat-button   (click)="openRegister()"  *ngIf="!authService.isLoggedStatus" >Register</button>
     </div>
 
- 
+    <div id=" profile">
+
+      <button mat-button [matMenuTriggerFor]="profile"   *ngIf="authService.isLoggedStatus" > {{user.userName}} </button>  
   
+      <mat-button-toggle-group id="category" color="accent" name="favoriteColor" >
+          <mat-menu #profile="matMenu">
+              <mat-button-toggle  routerLink="/favorite" >Favorite</mat-button-toggle>
+              <mat-button-toggle *ngIf="authService.isLoggedStatus" (click)="logout()">Log Out </mat-button-toggle>
+          </mat-menu>
+
+      </mat-button-toggle-group>   
+
+     
+              
+   </div>
+
+
 </mat-toolbar>

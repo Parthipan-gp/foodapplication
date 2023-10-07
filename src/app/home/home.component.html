@@ -5,19 +5,18 @@
 
     <mat-button-toggle-group id="category" color="accent" name="favoriteColor"  [(ngModel)]="searchInput" >
 
-        <mat-menu #location="matMenu">
-            <mat-button-toggle value="chennai"  (click)="onfilter()" >Chennai</mat-button-toggle>
-            <mat-button-toggle value="mumbai"   (click)="onfilter()" >Mumbai</mat-button-toggle>
-            <mat-button-toggle value="hydrabad" (click)="onfilter()" >Hydrabad</mat-button-toggle>
-            <mat-button-toggle value="hydrabad" (click)="onfilter()" >Kerala </mat-button-toggle>
-            <mat-button-toggle value="hydrabad" (click)="onfilter()" >Brownies</mat-button-toggle>
+        <mat-menu #location="matMenu" class="location">
+            <mat-button-toggle class="raised-Button" value="Bengaluru"  (click)="onfilter()" >Bengaluru</mat-button-toggle>
+            <mat-button-toggle class="raised-Button" value="Kochi"   (click)="onfilter()" >Kochi</mat-button-toggle>
+            <mat-button-toggle class="raised-Button" value="Tirupati" (click)="onfilter()" >Tirupati</mat-button-toggle>
+            <mat-button-toggle class="raised-Button" value="Mumbai" (click)="onfilter()" >Mumbai </mat-button-toggle>
+            <mat-button-toggle class="raised-Button" value="Chennai" (click)="onfilter()" >Chennai</mat-button-toggle>
         </mat-menu>
 
        </mat-button-toggle-group>   
      
        <app-search (searchEvent)="searchRestaurant($event)" ></app-search>
    
-
  </div>
 
 
