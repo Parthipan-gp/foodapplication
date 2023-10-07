@@ -1,5 +1,5 @@
 <div class="login">
-    <mat-card class="example-card">
+    
 
     <h1><strong>LOG IN</strong> </h1>
 
@@ -34,12 +34,12 @@
 
             <br>
 
-            <button class="sub" mat-button color="primary" (click)="validateUserCode()">Submit</button>
+            <button class="sub" mat-button color="primary"  (click)="validateUserCode()" matDialogClose>Submit</button>
 
-            <p> If you are a new user ,Create account <a routerLink="/register">Register</a></p>
+            <p> If you are a new user ,Create account <a (click)="openRegister()" matDialogClose>Register</a></p>
         </form>
     
-    </mat-card>
+    
     </div>
 
    

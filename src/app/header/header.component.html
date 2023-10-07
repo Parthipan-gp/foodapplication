@@ -5,24 +5,10 @@
    
 
     <div id="button">
-        <button mat-button  routerLink="/login"     *ngIf="!authService.isLoggedStatus" >Login</button>
-        <button mat-button  routerLink="/register"  *ngIf="!authService.isLoggedStatus" >Register</button>
+        <button mat-button  (click)="openlogin()"     *ngIf="!authService.isLoggedStatus" >Login</button>
+        <button mat-button   (click)="openRegister()"  *ngIf="!authService.isLoggedStatus" >Register</button>
     </div>
 
-    <!-- <div>
-        <mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">
-            <mat-drawer #drawer [mode]="mode.value">I'm a drawer</mat-drawer>
-            <mat-drawer-content>
-              <button mat-button>
-                <mat-label>Sidenav mode</mat-label>
-                <mat-select #mode value="side">
-                  <mat-option value="side">Side</mat-option>
-                  <mat-option value="over">Over</mat-option>
-                  <mat-option value="push">Push</mat-option>
-                </mat-select>
-            </button>
-            </mat-drawer-content>
-          </mat-drawer-container>
-    </div> -->
+ 
   
 </mat-toolbar>

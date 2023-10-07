@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { RouterService } from '../services/router.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +15,16 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  constructor(private authService:AuthService,private mb:MatSnackBar,private routeService:RouterService,private router:Router){}
+  constructor(private authService:AuthService,private mb:MatSnackBar,private routeService:RouterService,private router:Router,private matDialog:MatDialog,){}
 
   user:User={}
+
+  openRegister() {
+    this.matDialog.open(RegisterComponent, {
+      width: '450px'
+      
+    })
+     }
 
   validateUserCode(){
    if(this.user.userEmail && this.user.userPassword){
@@ -29,8 +38,8 @@ export class LoginComponent {
             localStorage.setItem("token",data.token)    //saving the token in the form of key value pair in the local storage of the web browser
             this.authService.isLoggedStatus=true;       // making loggedStatus to true
             console.log(this.authService.isLoggedStatus)
-            this.router.navigate([""])
-            // this.routeService.navigateToHomeView;       // navigating to home view
+            // this.router.navigate([""])
+            this.routeService.navigateToHomeView;       // navigating to home view
           }
 
         },

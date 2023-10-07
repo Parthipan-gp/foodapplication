@@ -5,6 +5,8 @@ import { FavoriteService } from '../services/favorite.service';
 import { FormBuilder,FormGroup,FormControl,Form, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 
 
 @Component({
@@ -15,7 +17,14 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
 
    //to post user details
-  constructor(private fb:FormBuilder,private favoriteService:FavoriteService,private mb:MatSnackBar,private router:Router) {}
+  constructor(private fb:FormBuilder,private favoriteService:FavoriteService,private mb:MatSnackBar,private router:Router,private matDialog:MatDialog) {}
+
+  openlogin(){
+    this.matDialog.open(LoginComponent,{
+      width:'350px',
+    })
+  }
+
 
   profileForm=this.fb.group({
     userName:['',[Validators.required,Validators.pattern("^[a-zA-Z \-\']+")]],
