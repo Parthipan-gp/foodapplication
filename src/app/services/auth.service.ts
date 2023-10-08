@@ -25,6 +25,11 @@ export class AuthService {
   }
 
   islogout(){
-    return this.isLoggedStatus=false;
+    if(localStorage.getItem('token')==null){
+       this.isLoggedStatus=false;
+    }
+
+    return this.isLoggedStatus
+    
   }
 }

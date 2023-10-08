@@ -1,6 +1,6 @@
 import { address } from "../model/address";
 import { dish } from "../model/dish";
-export type RestaurantData={
+export type  RestaurantData={
 
     restaurantId?:number,
     restaurantName?:string,

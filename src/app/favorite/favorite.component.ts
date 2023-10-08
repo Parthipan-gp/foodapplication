@@ -20,7 +20,7 @@ export class FavoriteComponent {
     this.favoriteService.getUserListOfResturant().subscribe({
       next:data=>{
         this.restaurantData=data;
-        console.log(data)
+        console.log(this.restaurantData)
       },
       error:error=>{
         alert("Failed to Fetch Restaurants Due to Server Error !!")

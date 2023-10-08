@@ -27,12 +27,12 @@ export class RegisterComponent {
 
 
   profileForm=this.fb.group({
+
     userName:['',[Validators.required,Validators.pattern("^[a-zA-Z \-\']+")]],
     userEmail:['',[Validators.required,Validators.pattern("^[a-zA-Z_.+-]+[a-zA-Z0-9_.+-]+@[a-zA-Z-]+\.[a-zA-Z-.]+$")]],
     userPassword:['',[Validators.required,Validators.pattern(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/)]],
     userPhoneNo:['',[Validators.required,Validators.maxLength(10),Validators.pattern(/^[789]\d{9,9}$/)]],
-    userImage:['',Validators.required]
-
+   
   })
 
   get userName(){ return this.profileForm.get("userName")}
@@ -45,7 +45,8 @@ export class RegisterComponent {
 
   //to post all the user details 
   onSubmit(){
-
+    console.log(" register method invoked")
+    
     let  userfavorite:UserFavorite=this.profileForm.value as UserFavorite
 
     this.favoriteService.registerUser(userfavorite).subscribe(()=>{alert("added")});

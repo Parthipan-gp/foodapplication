@@ -15,7 +15,7 @@ import { RegisterComponent } from '../register/register.component';
 })
 export class LoginComponent {
 
-  constructor(private authService:AuthService,private mb:MatSnackBar,private routeService:RouterService,private router:Router,private matDialog:MatDialog,){}
+  constructor(private authService:AuthService,private mb:MatSnackBar,private routeService:RouterService,private router:Router,private matDialog:MatDialog){}
 
   user:User={}
 
@@ -33,13 +33,16 @@ export class LoginComponent {
         next:data=>{
           console.log(data)
           console.log(data.message)
-          if(data.message==1){   // checking wheather the returned response object contains token
+          if(data.message==1){                                                  // checking wheather the returned response object contains token
             this.mb.open('Login', 'successful', {duration: 2000,panelClass: ['mat-toolbar', 'mat-primary']});
-            localStorage.setItem("token",data.token)    //saving the token in the form of key value pair in the local storage of the web browser
-            this.authService.isLoggedStatus=true;       // making loggedStatus to true
+            localStorage.setItem("token",data.token)                        //saving the token in the form of key value pair in the local storage of the web browser
+            localStorage.setItem("username",data.username)
+            this.authService.isLoggedStatus=true;                             // making loggedStatus to true
+            console.log(localStorage.getItem('token')) 
             console.log(this.authService.isLoggedStatus)
-            // this.router.navigate([""])
-            this.routeService.navigateToHomeView;       // navigating to home view
+            this.router.navigate([""])
+            // this.routeService.navigateToHomeView;                                // navigating to home view
+
           }
 
         },

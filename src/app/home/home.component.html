@@ -13,24 +13,24 @@
             <mat-button-toggle class="raised-Button" value="Chennai" (click)="onfilter()" >Chennai</mat-button-toggle>
         </mat-menu>
 
-       </mat-button-toggle-group>   
+    </mat-button-toggle-group>   
      
-       <app-search (searchEvent)="searchRestaurant($event)" ></app-search>
-   
  </div>
 
 
+ <app-search (searchEvent)="searchRestaurant($event)"  ></app-search>
 
- <div id="restaurant">
-    <mat-card class="example-card" *ngFor="let restaurant of restaurant" routerLink="restaurant/{{restaurant.restaurantId}}">
+
+ <div id="restaurant" >
+    <mat-card class="example-card" *ngFor="let restaurant of restaurant" routerLink="restaurant/{{restaurant.restaurantId}}" >
         <img id="img" mat-card-image src="../../assets/images/{{restaurant.cuisine}}.jpg" style="width: 275px; height: 275px;">
         <mat-card-header>
             <mat-card-title>{{restaurant.restaurantName}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <p class="content">{{restaurant.rating}} <img mat-card-image src="../../assets/star.png"
-                style="width: 3.2; height: 1em;"></p>
+            <p class="content">{{restaurant.rating}} <img mat-card-image src="../../assets/star.png" style="width: 3.2; height: 1em;"></p>
             <p class="content-two">{{restaurant.cuisine}}</p>
+           
         </mat-card-content>
     </mat-card>
 

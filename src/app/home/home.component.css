@@ -4,7 +4,8 @@
     margin: 30px 10px;
     display: inline-flex;
     flex-direction: row;
- 
+    transition: transform 0.3 ease;
+    transition: 500ms linear; 
 }
 
 #card{
@@ -12,10 +13,7 @@
     box-shadow: 2px 2px 20px rgb(195, 195, 195);
 }
 
-/* #img{
-    width: 100px;
-    display: inline-flex;
-} */
+
 .content{
     float: right;
     margin-top: -13%;   
@@ -29,9 +27,14 @@
     text-align: center;
     margin-left: 20px;
    
+    border-radius: 15px;
 }
 .raised-Button{
    margin-left:-40px;
    width: 5px;
    padding: 20px;
+}
+#img{
+    border-radius: 15px;
+    
 }

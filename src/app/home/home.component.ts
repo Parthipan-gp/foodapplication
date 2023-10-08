@@ -15,6 +15,7 @@ export class HomeComponent {
   restaurant:RestaurantData[]=[]
 
 
+
   ngOnInit(){
    this.restaurantService.getData().subscribe({
     next:data=>{
@@ -25,6 +26,9 @@ export class HomeComponent {
     }
    })
   }
+
+
+  localToken=localStorage.getItem('token');
 
 
   searchRestaurant(searchText:string){
@@ -41,6 +45,7 @@ export class HomeComponent {
       })
 
       console.log(this.restaurant)
+      console.log("from home component"+this.localToken)
     }
 
   }

@@ -10,7 +10,7 @@
                 <input matInput required type="text" placeholder="email" name="userEmail" #userEmail="ngModel"  [(ngModel)]="user.userEmail" pattern="^[a-zA-Z_.+-]+[a-zA-Z0-9_.+-]+@[a-zA-Z-]+\.[a-zA-Z-.]+$" >
 
                 <mat-error *ngIf="userEmail.errors?.['required']">
-                    Email cannot be empty or invalid format.
+                    Email cannot be empty 
                </mat-error>
 
                <mat-error *ngIf="userEmail.errors?.['pattern']">
@@ -34,7 +34,7 @@
 
             <br>
 
-            <button class="sub" mat-button color="primary"  (click)="validateUserCode()" matDialogClose>Submit</button>
+            <button class="sub" mat-button color="primary" [disabled]="!orderForm.valid" (click)="validateUserCode()" matDialogClose>Submit</button>
 
             <p> If you are a new user ,Create account <a (click)="openRegister()" matDialogClose>Register</a></p>
         </form>

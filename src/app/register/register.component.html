@@ -4,9 +4,9 @@
 
       <div class="container">
 
-         <h1 id="heading">Sign Up</h1>
+         <h1 id="heading"><strong> Sign Up</strong> </h1>
 
-         <form class="form"  (ngSubmit)="onSubmit()"  [formGroup]="profileForm" >
+         <form class="form"  [formGroup]="profileForm" >
 
             <mat-form-field appearance="outline">
                <mat-label>Full Name</mat-label> 
@@ -54,7 +54,7 @@
             </mat-form-field>
       
             <div class="example-button-row">
-               <button class="sub" mat-raised-button matDialogClose>Submit</button>
+               <button class="sub" mat-raised-button [disabled]="!profileForm.valid"  (click)="onSubmit()" matDialogClose  >Submit</button>
              </div> 
 
              <p> If you area lready a user, Please <a (click)="openlogin()" matDialogClose>Login</a></p>

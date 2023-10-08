@@ -5,6 +5,8 @@ import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { UserFavorite } from '../model/userfavorite';
 import { FavoriteService } from '../services/favorite.service';
+import { Router } from '@angular/router';
+import { debounceTime } from 'rxjs';
 
 
 @Component({
@@ -16,7 +18,9 @@ export class HeaderComponent {
 
   user:UserFavorite={}
 
-  constructor(public authService:AuthService,private matDialog:MatDialog, private favoriteService:FavoriteService){}
+   userName=localStorage.getItem("username")
+
+  constructor(public authService:AuthService,private matDialog:MatDialog, private favoriteService:FavoriteService,private router:Router){}
 
   openlogin(){
     this.matDialog.open(LoginComponent,{
@@ -30,17 +34,22 @@ export class HeaderComponent {
     })
   }
 
-  ngOnInit(){
-    this.favoriteService.getUserByUserId().subscribe({
-      next:data=>{
-        this.user=data
-      },
-    })
-  }
+  // ngOnInit(){
+    
+  //   this.favoriteService.getUserByUserId().subscribe({
+  //     next:data=>{
+  //       this.user=data
+  //     }
+  //   })
+  // }
 
 
   logout(){
-    this.authService.islogout();
+    localStorage.clear()
+   if(this.authService.islogout()==false) {
+    this.router.navigate([""])
+   }
+    
   }
 
 }

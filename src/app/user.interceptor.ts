@@ -15,7 +15,9 @@ export class UserInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     const localToken=localStorage.getItem('token');
+    console.log("token value"+localToken);
     request=request.clone({headers:request.headers.set('Authorization','Bearer '+localToken)})
+    console.log("token"+localToken)
     console.log(request)
     return next.handle(request);
   }
