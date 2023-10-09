@@ -42,6 +42,7 @@ export class RegisterComponent {
   get userImage(){ return this.profileForm.get("userImage")}
 
 
+  makeRequestStatus:boolean=false;
 
   //to post all the user details 
   onSubmit(){
@@ -49,13 +50,31 @@ export class RegisterComponent {
     
     let  userfavorite:UserFavorite=this.profileForm.value as UserFavorite
 
-    this.favoriteService.registerUser(userfavorite).subscribe(()=>{alert("added")});
-    this.mb.open('Congrats!!You have submiited the form!!', 'success', {
-      duration: 5000,
-      panelClass: ['mat-toolbar', 'mat-primary']
-    });
-    this.router.navigate([""])
+    this.favoriteService.registerUser(userfavorite).subscribe({
+      next:data=>{
+        this.makeRequestStatus=true;
+        this.mb.open('Congrats!!You have submitted the form!!', 'success', {duration: 5000,panelClass: ['mat-toolbar', 'mat-primary']});
+        this.router.navigate([""])
+      },
+      error:error=>{
+        alert('Failed to Add details due to Server Error !!')
+      }
+    })
+   
+ 
     
+  }
+
+
+  //can deactivate
+  canDeactivate(){
+    console.log("candeactivate called")
+    if(!this.makeRequestStatus){
+      this.makeRequestStatus=confirm("Do you really want to leave this page without saving changes")
+      console.log(this.makeRequestStatus)
+      return this.makeRequestStatus
+    }
+    return true;
   }
 
 }

@@ -44,10 +44,17 @@ export class HeaderComponent {
   // }
 
 
+
   logout(){
+    console.log("inside logout")
+    localStorage.removeItem('token')
+    localStorage.removeItem('message')
+    localStorage.removeItem('username')
     localStorage.clear()
+    console.log(localStorage.getItem('token'))
    if(this.authService.islogout()==false) {
     this.router.navigate([""])
+    console.log(localStorage.getItem('username'))
    }
     
   }

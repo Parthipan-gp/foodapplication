@@ -1,8 +1,6 @@
 <mat-toolbar>
 
-    <a href="#" id="anchor"><strong>Zomato</strong></a>
-
-   
+    <a href="" id="anchor"><strong>Zomato</strong></a>
 
     <div id="button">
         <button mat-button  (click)="openlogin() "     *ngIf="!authService.isLoggedStatus" >Log In</button>  
@@ -13,7 +11,7 @@
 
  
 
-      <button mat-button [matMenuTriggerFor]="profile"   *ngIf="authService.isLoggedStatus" >Welcome</button>  
+      <button mat-button [matMenuTriggerFor]="profile"   *ngIf="authService.isLoggedStatus" >{{userName}}</button>  
   
       <mat-button-toggle-group id="category" color="accent" name="favoriteColor" >
           <mat-menu #profile="matMenu">

@@ -9,7 +9,7 @@ export const activateGuard: CanActivateFn = (route, state) => {
   const router:RouterService=inject(RouterService)
 
 
-  if(auth.isLoggedStatus==true){
+  if(auth.isLoggedStatus==true){             //after login we are setting logged status to true, so since fav component is protected by auth guard , it checks wheather authguard returns true or false , based on the condiation we are navigating to fav component
     return true
   }
   else{

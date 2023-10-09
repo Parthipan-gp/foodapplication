@@ -25,6 +25,8 @@ export class AuthService {
   }
 
   islogout(){
+    console.log("called logout")
+    console.log(localStorage.getItem('token'))
     if(localStorage.getItem('token')==null){
        this.isLoggedStatus=false;
     }

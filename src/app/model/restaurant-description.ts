@@ -9,5 +9,5 @@ export type  RestaurantData={
     image?:string,
     rating?:number
     address?: address,
-    dishlist?:dish
+    dishList?:dish[]
 }

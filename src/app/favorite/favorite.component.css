@@ -12,16 +12,24 @@
     box-shadow: 2px 2px 20px rgb(195, 195, 195);
 }
 
-/* #img{
-    width: 100px;
-    display: inline-flex;
-} */
+img{
+    padding-bottom: 5px ;
+}
+#fav{
+    display: flex;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+}
+
 .content{
     float: right;
     margin-top: -13%;   
 }
 .content-two{
     text-align: left;
+}
+.content-three{
+    text-align: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .example-card {
     max-width: 300px;

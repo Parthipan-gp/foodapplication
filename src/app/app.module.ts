@@ -31,6 +31,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatMenuModule} from '@angular/material/menu';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import {MatMenuModule} from '@angular/material/menu';
     FavoriteComponent,
     RestaurantComponent,
     PageNotFoundComponent,
+    FooterComponent,
    
  
   ],
@@ -67,8 +69,7 @@ import {MatMenuModule} from '@angular/material/menu';
 
     
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass: UserInterceptor,multi:true}, 
-    RestaurantService,FavoriteService,AuthService],
+  providers: [RestaurantService,FavoriteService,{provide:HTTP_INTERCEPTORS,useClass: UserInterceptor,multi:true}],
   bootstrap: [AppComponent],
   
 })
