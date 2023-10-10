@@ -48,9 +48,7 @@ export class RegisterComponent {
      this.file=event.target.files[0];
   }
 
-  onUpload(){
-    
-  }
+
 
 
   makeRequestStatus:boolean=false;
