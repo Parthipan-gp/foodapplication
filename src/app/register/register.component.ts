@@ -32,6 +32,7 @@ export class RegisterComponent {
     userEmail:['',[Validators.required,Validators.pattern("^[a-zA-Z_.+-]+[a-zA-Z0-9_.+-]+@[a-zA-Z-]+\.[a-zA-Z-.]+$")]],
     userPassword:['',[Validators.required,Validators.pattern(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/)]],
     userPhoneNo:['',[Validators.required,Validators.maxLength(10),Validators.pattern(/^[789]\d{9,9}$/)]],
+    userImage:[null]
    
   })
 
@@ -40,6 +41,16 @@ export class RegisterComponent {
   get userPassword(){return this.profileForm.get("userPassword")}
   get userPhoneNo(){ return this.profileForm.get("userPhoneNo")}
   get userImage(){ return this.profileForm.get("userImage")}
+
+
+  file!:File;
+  onFileSelected(event:any){
+     this.file=event.target.files[0];
+  }
+
+  onUpload(){
+    
+  }
 
 
   makeRequestStatus:boolean=false;
@@ -60,9 +71,7 @@ export class RegisterComponent {
         alert('Failed to Add details due to Server Error !!')
       }
     })
-   
- 
-    
+     
   }
 
 

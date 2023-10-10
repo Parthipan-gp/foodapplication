@@ -6,23 +6,27 @@
 
 <div id="restaurant">
   
-  <mat-card class="example-card" *ngFor="let restaurant of restaurantData" routerLink="restaurant/{{restaurant.restaurantId}}">
-      <img id="img" mat-card-image src="../../assets/images/{{restaurant.cuisine}}.jpg" style="width: 275px; height: 275px;">
+  <mat-card class="example-card" *ngFor="let favorite of restaurantData" >
+      <img id="img" mat-card-image src="../../assets/images/{{favorite.cuisine}}.jpg" style="width: 275px; height: 275px;">
       <mat-card-header>
-          <mat-card-title>{{restaurant.restaurantName}}</mat-card-title>
+          <mat-card-title>{{favorite.restaurantName}}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-          <p class="content">{{restaurant.rating}} <img mat-card-image src="../../assets/star.png"style="width: 2.2; height: 1em;"></p>
-          <p class="content-two">{{restaurant.cuisine}}</p>
-          <p class="content-three">{{restaurant.address?.area}} </p>
-       
-         
+          <p class="content">{{favorite.rating}} <img mat-card-image src="../../assets/star.png"style="width: 2.2; height: 1em;"></p>
+          <p class="content-two">{{favorite.cuisine}}</p>
+          <p class="content-three">{{favorite.address?.area}} </p>
       </mat-card-content>
+
+      <br> <br>
+      <button mat-button (click)="removeRestaurant(favorite.restaurantId)" >Remove</button>
+      
+      <button mat-raised-button  routerLink="restaurant/{{favorite.restaurantId}}">View In Detail</button>
+      <br>
   </mat-card>
 
 </div>
 
-<div>
+<!-- <div>
     <mat-card  *ngFor="let restaurant of restaurantData">
         <diV>
             <mat-card *ngFor=" let dish of restaurant.dishList" >
@@ -31,4 +35,4 @@
         </diV>
         
     </mat-card>
-</div>
+</div> -->

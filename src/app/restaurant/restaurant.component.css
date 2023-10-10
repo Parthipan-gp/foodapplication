@@ -1,0 +1,37 @@
+.content{
+    float: right;
+    margin-top: -9%;
+}
+.card{
+    max-width: 600px;
+    height: 500px;
+   margin-top: 30px;
+    margin-left: 25%;
+    border-radius: 15px;
+
+}
+.content-two{
+    text-align: left;
+}
+#card-one{
+    width: 380px;
+    margin-left: 25%;
+    height: auto;
+}
+h2{
+   margin-left: 62%;
+    margin-top: -30%;
+}
+img{
+    border-radius: 10px;
+}
+#star{
+    padding-bottom: 5px;
+}
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    margin-left: 80%;
+    margin-top: -5%;
+  }

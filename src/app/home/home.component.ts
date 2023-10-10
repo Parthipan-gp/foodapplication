@@ -27,10 +27,16 @@ export class HomeComponent {
     error: error=>{
       alert("Failed to Fetch Restaurants Due to Server Error !!")
     }
-   })
+   }) 
+
   }
-
-
+  reload(){
+    
+    localStorage.clear()
+    localStorage.removeItem('token')
+    localStorage.removeItem('message')
+    localStorage.removeItem('username')
+  }
  
 
 
@@ -56,6 +62,7 @@ export class HomeComponent {
   searchInput:string=""
 
   onfilter(){
+    
     this.restaurantService.getData().subscribe((filterRestaurant=>{
       this.restaurant=filterRestaurant.filter(restaurant=>
         restaurant.location?.startsWith(this.searchInput)

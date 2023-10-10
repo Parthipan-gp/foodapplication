@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
 
     <mat-card>
 
@@ -28,4 +28,42 @@
     
    
 </div>
+ -->
+ <div >
 
+    <mat-card class="card" >
+        <img matCardImage src="../../assets/images/{{restaurant.cuisine}}.jpg" style="width: 600px;height: 350px;">
+
+        <mat-card-header>
+            <mat-card-title>
+                <h1>{{restaurant.restaurantName}}</h1>
+            </mat-card-title>
+        </mat-card-header>
+
+
+        <mat-card-content>
+            <p class="content fs-6"> <strong>{{restaurant.rating}} <img id="star" mat-card-image src="../../assets/star.png"
+                        style="width: 3.2; height: 1em;"> </strong></p>
+            <p class="content-two fs-5"><strong>{{restaurant.location}}</strong></p>
+        </mat-card-content>
+
+        <div *ngIf="authService.isLoggedStatus==true">      <!-- if true , enable user to a the list of restaurant to his  account-->
+           
+            <div class="example-button-container">
+             
+                <button mat-fab aria-label="Example icon button with a heart icon" (click)="addToFavorites()">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+            </div>
+        </div>
+        
+       
+    </mat-card>
+
+<div  id="card-one" *ngFor="let dish of restaurant.dishList" class="mt-5">
+        <img src="../../assets/images/{{dish.dishName}}.jpg" style="width: 175px;height: 150px;">
+               
+        <h2>{{dish.dishName}} <br><span>&#8377;</span>{{dish.dishCost}} <br> {{dish.dishType}}</h2>
+    </div>
+
+</div>

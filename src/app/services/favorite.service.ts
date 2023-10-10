@@ -39,4 +39,10 @@ export class FavoriteService {
    return this.http.get<UserFavorite>(this.urlGetUser)
   }
 
+  urlDeleteRestaurant:string="http://localhost:9000/api/v2/user/delete/"
+
+  deleteRestaurantFromFavList(id?:number):Observable<UserFavorite>{
+    return this.http.delete<UserFavorite>(`${this.urlDeleteRestaurant}/${id}`)
+  }
+
 }

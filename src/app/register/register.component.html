@@ -52,6 +52,11 @@
                   Enter a valid Phone No
                </mat-error>
             </mat-form-field>
+
+            <mat-form-field>
+               <input type="file" (change)="onFileSelected($event)" >
+               <button type="submit" (click)="onUpload()" > Upload</button>
+            </mat-form-field>
       
             <div class="example-button-row" >
                <button class="sub" mat-raised-button [disabled]="!profileForm.valid"  (click)="onSubmit()" matDialogClose  >Submit</button>

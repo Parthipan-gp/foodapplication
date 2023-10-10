@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent,canDeactivate:[canDeactivateGuard]},
   {path:'favorite',component:FavoriteComponent,canActivate:[activateGuard]},
-  {path:'favorite/:id',component:RestaurantComponent},
+  {path:'favorite/restaurant/:id',component:RestaurantComponent},
   {path:"**",component:PageNotFoundComponent}
   
 ];

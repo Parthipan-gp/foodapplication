@@ -18,6 +18,7 @@ export class RestaurantComponent {
   constructor(private ar :ActivatedRoute,private restaurantService:RestaurantService, public authService:AuthService,private favoriteService:FavoriteService,private mb:MatSnackBar){}
 
   ngOnInit(){
+    
     this.ar.paramMap.subscribe((data)=>{
       let id=data.get('id')??0
       console.log(id)

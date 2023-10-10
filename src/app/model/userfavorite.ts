@@ -6,5 +6,5 @@ export type UserFavorite={
     userName?:string;
     userPhoneNo?: number;
     userImage?:File,
-    restaurantList?:RestaurantData
+    restaurantList?:RestaurantData[]
 }
