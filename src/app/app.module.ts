@@ -32,6 +32,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatMenuModule} from '@angular/material/menu';
 import { FooterComponent } from './footer/footer.component';
+import { canDeactivateGuard } from './can-deactivate.guard';
 @NgModule({
   declarations: [
     AppComponent,

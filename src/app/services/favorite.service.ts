@@ -45,4 +45,11 @@ export class FavoriteService {
     return this.http.delete<UserFavorite>(`${this.urlDeleteRestaurant}/${id}`)
   }
 
+  urlImage:string="http://localhost:9000/api/v2/upload"
+
+  uploadImage(file:any):Observable<any>{
+    console.log("inside upload service")
+    return this.http.post<File>(this.urlImage,file)
+  }
+
 }

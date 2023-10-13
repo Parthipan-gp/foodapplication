@@ -18,9 +18,15 @@
       </mat-card-content>
 
       <br> <br>
-      <button mat-button (click)="removeRestaurant(favorite.restaurantId)" >Remove</button>
+      <!-- <button mat-button (click)="removeRestaurant(favorite.restaurantId)" >Remove</button> -->
+      <div class="example-button-container">
+        <button id="icon-one" mat-fab color="primary" aria-label="Example icon button with a delete icon"
+            (click)="removeRestaurant(favorite.restaurantId)">
+            <mat-icon id="icon">delete</mat-icon>
+        </button>
+    </div>
       
-      <button mat-raised-button  routerLink="restaurant/{{favorite.restaurantId}}">View In Detail</button>
+      <button id="button" mat-raised-button  routerLink="restaurant/{{favorite.restaurantId}}">View</button>
       <br>
   </mat-card>
 

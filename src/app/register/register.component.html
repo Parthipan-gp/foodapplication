@@ -1,12 +1,14 @@
 <div class="container-two">
 
-   
+   <h1> Sign up to Register...!</h1>
+
+   <mat-card id="card">
 
       <div class="container">
 
          <h1 id="heading"><strong> Sign Up</strong> </h1>
 
-         <form class="form"  [formGroup]="profileForm" >
+         <form class="form"  [formGroup]="profileForm"  >
 
             <mat-form-field appearance="outline">
                <mat-label>Full Name</mat-label> 
@@ -19,6 +21,7 @@
                </mat-error>
             </mat-form-field>
             
+            <br>
       
             <mat-form-field appearance="outline">
                <mat-label>Email </mat-label>
@@ -31,6 +34,9 @@
                </mat-error>
             </mat-form-field>
       
+
+            <br>
+
             <mat-form-field appearance="outline">
                <mat-label>Password </mat-label>
                <input matInput type="password" placeholder="Password" formControlName="userPassword">
@@ -42,6 +48,8 @@
                </mat-error>
             </mat-form-field>
             
+            <br>
+
             <mat-form-field appearance="outline">
                <mat-label>Phone No </mat-label>
                <input matInput type="text" placeholder="Phone No" formControlName="userPhoneNo">
@@ -53,13 +61,14 @@
                </mat-error>
             </mat-form-field>
 
-            <mat-form-field>
-               <input type="file" (change)="onFileSelected($event)" >
+            <br>
+            
+               <input type="file" (change)="onFileSelected($event)" accept="image"  >
                <button type="submit" (click)="onUpload()" > Upload</button>
-            </mat-form-field>
+           
       
             <div class="example-button-row" >
-               <button class="sub" mat-raised-button [disabled]="!profileForm.valid"  (click)="onSubmit()" matDialogClose  >Submit</button>
+               <button class="sub" mat-raised-button [disabled]="!profileForm.valid"  (click)="onSubmit()"   >Submit</button>
              </div> 
 
              <p> If you are already a user <a (click)="openlogin()" matDialogClose>Click here to Login</a></p>
@@ -69,7 +78,7 @@
 
     
 
-  
+   </mat-card>
     
 
 </div>

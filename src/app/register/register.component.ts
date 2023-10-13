@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+// import { canComponentDeactivate, canDeactivateType } from '../can-deactivate.guard';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class RegisterComponent {
     userEmail:['',[Validators.required,Validators.pattern("^[a-zA-Z_.+-]+[a-zA-Z0-9_.+-]+@[a-zA-Z-]+\.[a-zA-Z-.]+$")]],
     userPassword:['',[Validators.required,Validators.pattern(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/)]],
     userPhoneNo:['',[Validators.required,Validators.maxLength(10),Validators.pattern(/^[789]\d{9,9}$/)]],
-    userImage:[null]
+   
    
   })
 
@@ -40,14 +41,28 @@ export class RegisterComponent {
   get userEmail(){return this.profileForm.get("userEmail")}
   get userPassword(){return this.profileForm.get("userPassword")}
   get userPhoneNo(){ return this.profileForm.get("userPhoneNo")}
-  get userImage(){ return this.profileForm.get("userImage")}
+  
 
 
   file!:File;
   onFileSelected(event:any){
      this.file=event.target.files[0];
+     console.log(this.file)
   }
 
+  onUpload(){
+    console.log("upload invoked")
+    const imageFormData=new FormData();
+    imageFormData.append('file',this.file,this.file.name)
+    this.favoriteService.uploadImage(imageFormData).subscribe({
+      next:data=>{
+        alert("File successfully uploaded")
+      },
+      error:error=>{
+        alert("Failed to upload image")
+      }
+    })
+  }
 
 
 
