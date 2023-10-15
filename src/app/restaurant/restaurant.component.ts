@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RestaurantData } from '../model/restaurant-description';
 import { RestaurantService } from '../services/restaurant.service';
 import { AuthService } from '../services/auth.service';
 import { FavoriteService } from '../services/favorite.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Dish} from '../model/dish';
 
 @Component({
   selector: 'app-restaurant',
@@ -30,7 +31,7 @@ export class RestaurantComponent {
     })
   }
 
-  
+  // add to favrouites
 
   addToFavorites(){        
       
@@ -44,6 +45,34 @@ export class RestaurantComponent {
     })
   }
 
+  //add dish to cart
+
+  dish?:Dish={}
+
+  addToCart(restaurantId?:number,dishId?:number){
+    this.favoriteService.getDishById(restaurantId,dishId).subscribe({
+      next:data=>{
+        this.dish=data;
+        alert("dish added to cart")
+      
+      },
+      error:error=>{
+        alert("Failed to add dish to cart")
+      }
+    })
+  }
+
+  
+
+  // @Output()
+
+  // emitter=new EventEmitter<string>
+  
+
+  // delayEmit(){
+  //   this.emitter.emit();
+  // }
+ 
 
 
 

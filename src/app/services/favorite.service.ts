@@ -4,6 +4,7 @@ import { UserFavorite } from '../model/userfavorite';
 import { Observable } from 'rxjs';
 import { RestaurantData } from '../model/restaurant-description';
 import { User } from '../model/user';
+import { Dish } from '../model/dish';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,14 @@ export class FavoriteService {
   uploadImage(file:any):Observable<any>{
     console.log("inside upload service")
     return this.http.post<File>(this.urlImage,file)
+  }
+
+
+
+  urlGetDish:string="http://localhost:9000/api/v2/user/get/"
+
+  getDishById(restaurantId?:number,dishId?:number):Observable<Dish>{
+     return this.http.get<Dish>(`${this.urlGetDish}/${restaurantId}/${dishId}`)
   }
 
 }

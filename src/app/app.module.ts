@@ -33,6 +33,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatMenuModule} from '@angular/material/menu';
 import { FooterComponent } from './footer/footer.component';
 import { canDeactivateGuard } from './can-deactivate.guard';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { canDeactivateGuard } from './can-deactivate.guard';
     RestaurantComponent,
     PageNotFoundComponent,
     FooterComponent,
+    AddToCartComponent,
    
  
   ],

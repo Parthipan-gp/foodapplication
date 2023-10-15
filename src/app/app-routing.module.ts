@@ -8,6 +8,7 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { activateGuard } from './activate.guard';
 import { canDeactivateGuard } from './can-deactivate.guard';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 
 const routes: Routes = [
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent,canDeactivate:[canDeactivateGuard]},
   {path:'favorite',component:FavoriteComponent,canActivate:[activateGuard]},
   {path:'favorite/restaurant/:id',component:RestaurantComponent},
+  {path:'addToCart/:id/:id1',component:AddToCartComponent},
   {path:"**",component:PageNotFoundComponent}
   
 ];

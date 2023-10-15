@@ -15,7 +15,9 @@
       <mat-button-toggle-group id="category" color="accent" name="favoriteColor" >
           <mat-menu #profile="matMenu">
               <mat-button-toggle class="raised-Button"   routerLink="/favorite" >Favorite</mat-button-toggle>
+              <mat-button-toggle class="raised-Button"   routerLink="/addToCart" >Cart</mat-button-toggle>
               <mat-button-toggle class="raised-Button"  *ngIf="authService.isLoggedStatus" (click)="logout()">Log Out </mat-button-toggle>
+              
           </mat-menu>
 
       </mat-button-toggle-group>
@@ -25,4 +27,4 @@
    </div>
 
 
-</mat-toolbar>
+</mat-toolbar>    

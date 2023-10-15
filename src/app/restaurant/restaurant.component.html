@@ -65,7 +65,11 @@
             <img class="img" src="../../assets/images/{{dish.dishName}}.jpg" style="width: 175px;height: 150px;">
 
             <h2 class="fs-6">{{dish.dishName}} <br><span>&#8377;</span>{{dish.dishCost}} <br> {{dish.dishType}}</h2>
+            <button mat-raised-button  *ngIf="authService.isLoggedStatus" routerLink="/addToCart/{{restaurant.restaurantId}}/{{dish.dishId}}" > Add to cart</button>
+           
         </div>
     </div>
 
 </div>
+
+<!-- (click)="addToCart(restaurant.restaurantId,dish.dishId) -->

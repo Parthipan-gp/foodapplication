@@ -1,5 +1,5 @@
 import { address } from "../model/address";
-import { dish } from "../model/dish";
+import { Dish } from "../model/dish";
 export type  RestaurantData={
 
     restaurantId?:number,
@@ -9,5 +9,5 @@ export type  RestaurantData={
     image?:string,
     rating?:number
     address?: address,
-    dishList?:dish[]
+    dishList?:Dish[]
 }
