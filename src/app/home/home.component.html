@@ -30,8 +30,7 @@
 
 
 <div id="restaurant" class=" row ps-5 ">
-    <mat-card class="example-card mb-4 lg-7" *ngFor="let restaurant of restaurant"
-        routerLink="restaurant/{{restaurant.restaurantId}}">
+    <mat-card class="example-card mb-4 lg-7" *ngFor="let restaurant of restaurant" routerLink="/restaurant/{{restaurant.restaurantId}}">
         <img id="img" mat-card-image src="../../assets/images/{{restaurant.cuisine}}.jpg"
             style="width: 275px; height: 275px;">
         <mat-card-header>

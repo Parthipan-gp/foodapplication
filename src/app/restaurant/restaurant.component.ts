@@ -1,11 +1,13 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { RestaurantData } from '../model/restaurant-description';
 import { RestaurantService } from '../services/restaurant.service';
 import { AuthService } from '../services/auth.service';
 import { FavoriteService } from '../services/favorite.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Dish} from '../model/dish';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
+
 
 @Component({
   selector: 'app-restaurant',
@@ -16,7 +18,7 @@ export class RestaurantComponent {
 
   restaurant:RestaurantData={}
 
-  constructor(private ar :ActivatedRoute,private restaurantService:RestaurantService, public authService:AuthService,private favoriteService:FavoriteService,private mb:MatSnackBar){}
+  constructor(private ar :ActivatedRoute,private restaurantService:RestaurantService, public authService:AuthService,private favoriteService:FavoriteService,private mb:MatSnackBar,private routerService:Router,private matDialog:MatDialog){}
 
   ngOnInit(){
     
@@ -45,22 +47,34 @@ export class RestaurantComponent {
     })
   }
 
+
+  login(){
+    if(this.authService.isLoggedStatus==false){
+      this.matDialog.open(LoginComponent,{
+        width:'350px',
+      })
+    }
+    else{
+      this.restaurant
+    }
+  }
+
   //add dish to cart
 
-  dish?:Dish={}
+  // dish?:Dish={}
 
-  addToCart(restaurantId?:number,dishId?:number){
-    this.favoriteService.getDishById(restaurantId,dishId).subscribe({
-      next:data=>{
-        this.dish=data;
-        alert("dish added to cart")
+  // addToCart(restaurantId?:number,dishId?:number){
+  //   this.favoriteService.getDishById(restaurantId,dishId).subscribe({
+  //     next:data=>{
+  //       this.dish=data;
+  //       alert("dish added to cart")
       
-      },
-      error:error=>{
-        alert("Failed to add dish to cart")
-      }
-    })
-  }
+  //     },
+  //     error:error=>{
+  //       alert("Failed to add dish to cart")
+  //     }
+  //   })
+  // }
 
   
 

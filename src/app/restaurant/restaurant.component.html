@@ -59,17 +59,20 @@
 
 
     </mat-card>
+
+    <div  >
     <div class="row">
         <h1 id="card-two"> <strong>Serves {{restaurant.cuisine}} </strong></h1>
-        <div id="card-one" *ngFor="let dish of restaurant.dishList" class=" mt-5">
-            <img class="img" src="../../assets/images/{{dish.dishName}}.jpg" style="width: 175px;height: 150px;">
-
+        <mat-card  style="width: 250px; height:250px;" id="card-one" *ngFor="let dish of restaurant.dishList" class="card mt-5">
+            <img  (click)="login()" class="img" src="../../assets/images/{{dish.dishName}}.jpg" style="width: 230px;height: 150px;">
             <h2 class="fs-6">{{dish.dishName}} <br><span>&#8377;</span>{{dish.dishCost}} <br> {{dish.dishType}}</h2>
-            <button mat-raised-button  *ngIf="authService.isLoggedStatus" routerLink="/addToCart/{{restaurant.restaurantId}}/{{dish.dishId}}" > Add to cart</button>
-           
-        </div>
+            <!-- <button class="buttom" mat-raised-button  *ngIf="authService.isLoggedStatus" routerLink="/addToCart/{{restaurant.restaurantId}}/{{dish.dishId}}"> Add to cart</button> -->
+            <button class="buttom" mat-icon-button *ngIf="authService.isLoggedStatus" routerLink="/addToCart/{{restaurant.restaurantId}}/{{dish.dishId}}">
+            <mat-icon >add_shopping_cart</mat-icon>
+        </button>
+        </mat-card>
     </div>
-
+</div>
 </div>
 
 <!-- (click)="addToCart(restaurant.restaurantId,dish.dishId) -->

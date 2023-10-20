@@ -16,13 +16,17 @@
 }
 
 #card{
-  width:600px;
+  width:700px;
  margin-left: 420px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 .head{
-  margin-left: 43%;
+  margin-left: 46%;
   padding-top: 100px;
   margin-bottom: -120px;
   font-family: Titillium Web
+}
+.field{
+  width: 55%;
+  margin-top: 20px;
 }

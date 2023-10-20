@@ -8,11 +8,17 @@
     text-align: left;
 }
 
-#card-one {
-    width: 350px;
-    /* margin-left: 25%; */
-    height: auto;
+.buttom{
+    margin-top: -30px;
+    height: 25px;
+    margin-left: 80%;
+    margin-top: -25%;
 }
+
+#card-one:hover{
+    transform: scale(1.03);
+}
+
 
 h2 {
     float: right;
@@ -38,7 +44,7 @@ h2 {
 #card-one {
     width: 200px;
     margin-left: 5%;
-   
+    transition: transform 0.3 ease;
 }
 #card-two {
     /* width: 200px; */

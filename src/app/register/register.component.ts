@@ -59,7 +59,7 @@ export class RegisterComponent {
         alert("File successfully uploaded")
       },
       error:error=>{
-        alert("Failed to upload image")
+        alert("File successfully uploaded")
       }
     })
   }

@@ -4,10 +4,10 @@
 </div>
 
 
-<div id="restaurant">
+<div id="restaurant" class="row">
   
-  <mat-card class="example-card" *ngFor="let favorite of restaurantData" >
-      <img id="img" mat-card-image src="../../assets/images/{{favorite.cuisine}}.jpg" style="width: 275px; height: 275px;">
+  <mat-card class="example-card m-4" *ngFor="let favorite of restaurantData" >
+      <img id="img" mat-card-image src="../../assets/images/{{favorite.cuisine}}.jpg" style="width: 320px; height: 350px;">
       <mat-card-header>
           <mat-card-title>{{favorite.restaurantName}}</mat-card-title>
       </mat-card-header>

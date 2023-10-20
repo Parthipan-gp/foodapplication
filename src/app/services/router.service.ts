@@ -33,4 +33,5 @@ export class RouterService {
     this.routerService.navigate(["favorite"])
   }
 
+  
 }

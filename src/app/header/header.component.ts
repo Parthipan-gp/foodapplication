@@ -59,4 +59,8 @@ export class HeaderComponent {
     
   }
 
+  redirectToHome(){
+    this.router.navigate([""])
+  }
+
 }

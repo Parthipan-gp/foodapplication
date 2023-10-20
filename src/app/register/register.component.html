@@ -10,7 +10,7 @@
 
          <form class="form"  [formGroup]="profileForm"  >
 
-            <mat-form-field appearance="outline">
+            <mat-form-field class="field" appearance="outline">
                <mat-label>Full Name</mat-label> 
                <input matInput type="text" placeholder="Full Name" formControlName="userName">
                <mat-error *ngIf="userName?.errors?.['required']">
@@ -23,41 +23,41 @@
             
             <br>
       
-            <mat-form-field appearance="outline">
+            <mat-form-field class="field" appearance="outline">
                <mat-label>Email </mat-label>
                <input matInput type="email" placeholder="Email" formControlName="userEmail">
                <mat-error *ngIf="userEmail?.errors?.['required']">
                   Email is required
                </mat-error>
                <mat-error *ngIf="userEmail?.errors?.['pattern']">
-                  Enter a valid emailId
+                  Enter a valid emailId (ex: john@gmail.com)
                </mat-error>
             </mat-form-field>
       
 
             <br>
 
-            <mat-form-field appearance="outline">
+            <mat-form-field class="field" appearance="outline">
                <mat-label>Password </mat-label>
                <input matInput type="password" placeholder="Password" formControlName="userPassword">
                <mat-error *ngIf="userPassword?.errors?.['required']">
                   Password is required
                </mat-error>
                <mat-error *ngIf="userPassword?.errors?.['pattern']">
-                  Enter a valid Password
+                Password must contain minimum 8 characters with combination of <strong>uppercase , lowercase letter</strong> and <strong>number</strong>
                </mat-error>
             </mat-form-field>
             
             <br>
 
-            <mat-form-field appearance="outline">
+            <mat-form-field class="field" appearance="outline">
                <mat-label>Phone No </mat-label>
                <input matInput type="text" placeholder="Phone No" formControlName="userPhoneNo">
                <mat-error *ngIf="userPhoneNo?.errors?.['required']">
                   Phone No is required
                </mat-error>
                <mat-error *ngIf="userPhoneNo?.errors?.['pattern']">
-                  Enter a valid Phone No
+                   Phone No must start from 7,8 or 9
                </mat-error>
             </mat-form-field>
 
