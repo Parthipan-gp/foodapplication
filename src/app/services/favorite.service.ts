@@ -61,4 +61,10 @@ export class FavoriteService {
      return this.http.get<Dish>(`${this.urlGetDish}/${restaurantId}/${dishId}`)
   }
 
+  urlSave:string="http://localhost:9000/api/v4/archive/addToCart/saveDish"
+
+  saveDishToUser(restaurant?:RestaurantData,dish?:Dish):Observable<any>{
+    return this.http.post<any>(this.urlSave, `${restaurant}/${dish}`)
+  }
+
 }

@@ -67,7 +67,7 @@
             <img  (click)="login()" class="img" src="../../assets/images/{{dish.dishName}}.jpg" style="width: 230px;height: 150px;">
             <h2 class="fs-6">{{dish.dishName}} <br><span>&#8377;</span>{{dish.dishCost}} <br> {{dish.dishType}}</h2>
             <!-- <button class="buttom" mat-raised-button  *ngIf="authService.isLoggedStatus" routerLink="/addToCart/{{restaurant.restaurantId}}/{{dish.dishId}}"> Add to cart</button> -->
-            <button class="buttom" mat-icon-button *ngIf="authService.isLoggedStatus" routerLink="/addToCart/{{restaurant.restaurantId}}/{{dish.dishId}}">
+            <button class="buttom" mat-icon-button *ngIf="authService.isLoggedStatus" (click)="addToCart(restaurant,dish)">
             <mat-icon >add_shopping_cart</mat-icon>
         </button>
         </mat-card>

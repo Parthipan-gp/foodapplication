@@ -8,6 +8,6 @@ export type  RestaurantData={
     cuisine?:string
     image?:string,
     rating?:number
-    address?: address,
+    address?: address
     dishList?:Dish[]
 }

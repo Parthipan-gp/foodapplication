@@ -7,6 +7,7 @@ import { FavoriteService } from '../services/favorite.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { Dish } from '../model/dish';
 
 
 @Component({
@@ -61,20 +62,18 @@ export class RestaurantComponent {
 
   //add dish to cart
 
-  // dish?:Dish={}
 
-  // addToCart(restaurantId?:number,dishId?:number){
-  //   this.favoriteService.getDishById(restaurantId,dishId).subscribe({
-  //     next:data=>{
-  //       this.dish=data;
-  //       alert("dish added to cart")
-      
-  //     },
-  //     error:error=>{
-  //       alert("Failed to add dish to cart")
-  //     }
-  //   })
-  // }
+
+  addToCart(restaurant?:RestaurantData,dish?:Dish){
+    this.favoriteService.saveDishToUser(restaurant,dish).subscribe({
+      next:data=>{
+        alert("dish added to cart")
+      },
+      error:error=>{
+        alert("Failed to add dish to cart")
+      }
+    })
+  }
 
   
 
